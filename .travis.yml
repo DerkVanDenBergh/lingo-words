@@ -1,7 +1,7 @@
 language: java
 script:
-  mvn verify clean compile install test package
-  travis setup releases --pro
+  - mvn verify compile install test package
+  - travis setup releases --pro
 before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "DerkVanDenBergh"
