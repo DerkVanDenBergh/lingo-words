@@ -5,7 +5,7 @@ before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "Derk"
   - git config --local user.email "derkv@ndenbergh.nl"
-  - export GIT_TAG=$TRAVIS_BRANCH-v0.1.$TRAVIS_BUILD_NUMBER
+  - export GIT_TAG=master-v0.1.$TRAVIS_BUILD_NUMBER
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
 deploy:
   provider: releases
@@ -15,5 +15,5 @@ deploy:
     - ./target/Wordset-Export.jar
   skip_cleanup: true
   on:
-    repo: https://github.com/DerkVanDenBergh/lingo-words
+    repo: /home/travis/build/DerkVanDenBergh/lingo-words/
     tags: true
