@@ -1,0 +1,6 @@
+infrastructure\serialization\DeserializerTest.class
+infrastructure\target\ApiWordsetTargetTest.class
+infrastructure\serialization\deserializers\CSVDeserializerTest.class
+application\WordsetProcessorTest.class
+domain\WordsetTest.class
+infrastructure\source\FileWordsetSourceTest.class

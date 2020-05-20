@@ -1,1 +1,19 @@
 language: java
+script:
+  mvn verify clean compile install test package
+before_deploy:
+  # Set up git user name and tag this commit
+  - git config --local user.name "DerkVanDenBergh"
+  - git config --local user.email "derkv@ndenbergh.nl"
+  - export GIT_TAG=master-v0.1.$TRAVIS_BUILD_NUMBER
+  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+deploy:
+  provider: releases
+  api_key:
+    secure: 51989dc1ff020bee143f4e28ea003e50a24226a4
+  file:
+    - ./target/Wordset-Export.jar
+  cleanup: false
+  on:
+    repo: DerkVanDenBergh/lingo-words
+    branch: master
