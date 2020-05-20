@@ -13,7 +13,7 @@ deploy:
     secure: 51989dc1ff020bee143f4e28ea003e50a24226a4
   file:
     - ./target/Wordset-Export.jar
-  skip_cleanup: true
+  cleanup: false
   on:
     repo: DerkVanDenBergh/lingo-words
     tags: true
