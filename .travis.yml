@@ -1,6 +1,7 @@
 language: java
 script:
   mvn verify clean compile install test package
+  travis setup releases --pro
 before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "DerkVanDenBergh"
@@ -13,7 +14,8 @@ deploy:
     secure: 3ec30d546a1b588a9cb1fa84a5ef41296270f15f
   file:
     - ./target/Wordset-Export.jar
-  skip_cleanup: true
+  cleanup: false
   on:
     repo: DerkVanDenBergh/lingo-words
     tags: true
+    branch: master
