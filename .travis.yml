@@ -17,7 +17,3 @@ deploy:
   on:
     repo: DerkVanDenBergh/lingo-words
     branch: master
-branches:
-  only:
-    - master
-    - /^v\d+\.\d+\.\d+.*$/
