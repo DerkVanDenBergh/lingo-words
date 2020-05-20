@@ -16,4 +16,8 @@ deploy:
   cleanup: false
   on:
     repo: DerkVanDenBergh/lingo-words
-    tags: true
+    branch: master
+branches:
+  only:
+    - master
+    - /^v\d+\.\d+\.\d+.*$/
