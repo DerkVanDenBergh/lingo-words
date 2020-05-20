@@ -10,7 +10,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: 51989dc1ff020bee143f4e28ea003e50a24226a4
+    secure: fd:4b:9f:58:f2:83:89:a9:f6:eb:19:0b:a8:4e:2f:3c
   file:
     - ./target/Wordset-Export.jar
   cleanup: false
