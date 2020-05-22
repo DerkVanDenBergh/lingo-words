@@ -12,7 +12,7 @@ public class JSONSerializer implements Serializer {
 
         ArrayList<String> wordsetWords = wordset.getWords();
 
-        serializedWordset = "{\"language\":\"" + wordset.getLanguage() + "\",\n\"words\":[";
+        serializedWordset = "{\"language\":\"" + wordset.getLanguage() + "\",\"words\":[";
 
         for(String word : wordsetWords) {
             serializedWordset += "\"" + word + "\",";
