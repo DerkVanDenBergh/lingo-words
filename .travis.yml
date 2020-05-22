@@ -1,11 +1,6 @@
 language: java
 script:
 - mvn verify compile install test package
-before_deploy:
-- git config --local user.name "DerkVanDenBergh"
-- git config --local user.email "derkv@ndenbergh.nl"
-- export GIT_TAG=master-v0.1.$TRAVIS_BUILD_NUMBER
-- git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
 deploy:
   provider: releases
   api_key:
@@ -13,5 +8,5 @@ deploy:
   file: './target/Wordset-Export.jar'
   on:
     repo: DerkVanDenBergh/lingo-words
-    tags: true
+    branch: master-v0.1.$TRAVIS_BUILD_NUMBER
   skip_cleanup: 'true'
