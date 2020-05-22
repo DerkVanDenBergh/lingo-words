@@ -4,7 +4,7 @@ import infrastructure.filter.filters.AlphaNumericWordFilter;
 import infrastructure.filter.filters.AlphabeticalWordFilter;
 
 public class WordFilterFactory {
-    public WordFilter CreateFilter(String filter) {
+    public WordFilter createFilter(String filter) {
         if(filter.equals("alphabetical")) {
             return new AlphabeticalWordFilter();
         } else if(filter.equals("alphanumeric")) {

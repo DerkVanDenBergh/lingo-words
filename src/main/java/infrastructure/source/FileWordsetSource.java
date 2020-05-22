@@ -27,13 +27,14 @@ public class FileWordsetSource implements WordsetSource
 
     public Wordset importSet()
     {
+        //ToDo: Exceptions
         Path pathToFile = Paths.get(path);
 
         String extension = Files.getFileExtension(pathToFile.toString());
 
-        Deserializer deserializer = new DeserializerFactory().CreateDeserializer(extension);
+        Deserializer deserializer = new DeserializerFactory().createDeserializer(extension);
 
-        WordFilter wordFilter = new WordFilterFactory().CreateFilter(filter);
+        WordFilter wordFilter = new WordFilterFactory().createFilter(filter);
 
         return new Wordset(wordFilter.filterWords(deserializer.read(pathToFile)), this.language);
     }
