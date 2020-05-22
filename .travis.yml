@@ -8,5 +8,6 @@ deploy:
   file: './target/Wordset-Export.jar'
   on:
     repo: DerkVanDenBergh/lingo-words
-    branch: master
+    all_branches: true
+    condition: $TRAVIS_BRANCH == master$
   skip_cleanup: 'true'
