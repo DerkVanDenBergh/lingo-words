@@ -1,8 +1,7 @@
 language: java
 script:
-  mvn verify clean compile install test package
+- echo $TRAVIS_BRANCH
 before_deploy:
-  # Set up git user name and tag this commit
   - git config --local user.name "DerkVanDenBergh"
   - git config --local user.email "derkv@ndenbergh.nl"
   - export GIT_TAG=master-v0.1.$TRAVIS_BUILD_NUMBER
@@ -10,10 +9,10 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: fd:4b:9f:58:f2:83:89:a9:f6:eb:19:0b:a8:4e:2f:3c
-  file:
-    - ./target/Wordset-Export.jar
-  cleanup: false
+    secure: O5k893tiwUyZDK1q14bJSNUv1ZjcVVW8JQfgVrfG+zoELt8xnxynSadcGtUrA4cx1TfEsoMQYN3zaqy2yKwG+LhpoAAanxg0EJeLjeDu2Wi0NJZMNypNfK7lq5u40a6RHcmfoicEoJS7fKwzrYdFtdSYmUW07uFuCcQAaJRksHf4Dxd1YNeqaDG0Gfo6uWA2+CUhCC7kbTZ+xovG+fCscEa/aT+cwxvB4cZJlrJCFFgZy+KFb9wO5z33UNANtw2DMvlfHcOr3rSj2u+eV1NFPeFIwhQnkmH6H+g+ErodoNsLbYuFwADyKssLDACIWiwESMqUn8+YJj3Wg8DbNSxBN5MupuPOGcp52zbDtc/asZa29PMZRau4hgFVKgpUHCIEtHuR37MWp+qkzMBDrgObwxkDo9hK3oFboNhWt9DohmOx+Pxuv/4xXB1bJ8LE+uQM1hVBNEViLPqr/80MJ/tWIHRtzVjTJB82xqMLJfmITtSuaDLD4SHxeglcc6NXTVxYLKAdYzs3V0KoHzR0+MSjqr/U1AgRYPbe/kVz0twua5ZoyRYzT00zmJheec9VKBIyx3Jj2RtwJTARIivZ84EoshG97FBK6KKkrs3hNSZapVpKRTPTKxt6cs3kAy8qZFD4Aa8rnl7CZ6Dk35svEcWZnUdxsV1DU7tTv74Hhp6e/W4=
+  file: './target/Wordset-Export.jar'
   on:
     repo: DerkVanDenBergh/lingo-words
-    branch: master
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^(master|dev)$
+  skip_cleanup: 'true'
