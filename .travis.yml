@@ -15,4 +15,5 @@ deploy:
     condition: $TRAVIS_BRANCH =~ ^(master|dev)$
   skip_cleanup: 'true'
 after_success:
+  - CODECOV_TOKEN="1e11d9cd-8b4c-4ec5-9ff9-6f1cc7fc5a68"
   - bash <(curl -s https://codecov.io/bash)
