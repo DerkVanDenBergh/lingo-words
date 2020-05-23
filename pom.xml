@@ -103,6 +103,10 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
+                        <configuration>
+                            <!-- Sets the output directory for the code coverage report. -->
+                            <outputDirectory>${project.reporting.outputDirectory}</outputDirectory>
+                        </configuration>
                     </execution>
                 </executions>
                 <!-- Threshold -->
