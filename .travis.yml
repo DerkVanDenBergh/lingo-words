@@ -1,8 +1,11 @@
 language: java
+env:
+  global:
+    - CODECOV_TOKEN="1e11d9cd-8b4c-4ec5-9ff9-6f1cc7fc5a68"
 before_deploy:
   - git config --local user.name "DerkVanDenBergh"
   - git config --local user.email "derkv@ndenbergh.nl"
-  - export GIT_TAG=$TRAVIS_BRANCH-v0.1.$TRAVIS_BUILD_NUMBER
+  - export GIT_TAG=$TRAVIS_BRANCH_buildv0.1.$TRAVIS_BUILD_NUMBER
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
 deploy:
   provider: releases
@@ -12,5 +15,8 @@ deploy:
   on:
     repo: DerkVanDenBergh/lingo-words
     all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^(master|dev)$
+    condition: $TRAVIS_BRANCH =~ ^(master|release)$
   skip_cleanup: 'true'
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - codecov

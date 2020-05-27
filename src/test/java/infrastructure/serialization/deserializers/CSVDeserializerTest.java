@@ -18,7 +18,7 @@ public class CSVDeserializerTest {
 
         ArrayList<String> fileWords = new ArrayList<>();
 
-        fileWords.add("the");
+        fileWords.add("the/");
         fileWords.add("quick!");
         fileWords.add("br0wn");
         fileWords.add("fox");

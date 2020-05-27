@@ -12,12 +12,20 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.rmi.server.ExportException;
 
 public class ApiWordsetTarget implements WordsetTarget {
 
     final String endpoint;
     final String format;
+
+    final Throwable ExportException = new Exception();
 
     public ApiWordsetTarget(String endpoint, String format)
     {
@@ -25,7 +33,7 @@ public class ApiWordsetTarget implements WordsetTarget {
         this.format = format;
     }
 
-    public void export(Wordset wordset) {
+    public String export(Wordset wordset) throws ExportException {
 
         HttpClient httpclient = HttpClients.createDefault();
         HttpPost httppost = new HttpPost(endpoint);
@@ -48,13 +56,23 @@ public class ApiWordsetTarget implements WordsetTarget {
             HttpEntity entity = response.getEntity();
             if (entity != null) {
                 try (InputStream instream = entity.getContent()) {
-                    // do something useful
+                    StringBuilder textBuilder = new StringBuilder();
+                    try (Reader reader = new BufferedReader(new InputStreamReader
+                            (instream, Charset.forName(StandardCharsets.UTF_8.name())))) {
+                        int c = 0;
+                        while ((c = reader.read()) != -1) {
+                            textBuilder.append((char) c);
+                        }
+                    }
+
+                    return textBuilder.toString();
                 }
             }
         } catch(Exception e) {
             System.out.println(e.getMessage());
+            throw new ExportException("Export failed, please check API endpoint");
         }
 
-
+        return null;
     }
 }

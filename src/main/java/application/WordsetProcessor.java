@@ -16,7 +16,8 @@ public class WordsetProcessor {
 
     public boolean exportWordset(WordsetSource source, WordsetTarget target) {
         try {
-            target.export(source.importSet());
+            String response = target.export(source.importSet());
+            System.out.println(response);
         } catch(Exception e) {
             System.out.println(e.toString());
             return(false);

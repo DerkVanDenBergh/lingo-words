@@ -25,6 +25,6 @@ public class AlphabeticalWordFilterTest {
 
 
 
-        assertEquals(filteredWords, filter.filterWords(toBeFilteredWords), "Filter should remove 'quick!' and 'br0wn'");
+        assertEquals(filteredWords, filter.filterWords(toBeFilteredWords), "Filter should removed 'quick!' and 'br0wn'");
     }
 }
