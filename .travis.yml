@@ -5,7 +5,7 @@ env:
 before_deploy:
   - git config --local user.name "DerkVanDenBergh"
   - git config --local user.email "derkv@ndenbergh.nl"
-  - export TRAVIS_TAG="Build \#"$TRAVIS_BUILD_NUMBER
+  - export TRAVIS_TAG=Build#$TRAVIS_BUILD_NUMBER
   - git tag $TRAVIS_TAG
 deploy:
   provider: releases
