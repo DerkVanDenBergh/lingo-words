@@ -1,5 +1,5 @@
 package domain;
 
 public interface WordsetTarget {
-    public void export(Wordset wordset);
+    public String export(Wordset wordset) throws Exception;
 }
