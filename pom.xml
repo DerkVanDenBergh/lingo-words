@@ -133,10 +133,12 @@
                 </executions>
                 <!-- Threshold -->
                 <configuration>
+                    <excludes>
+                        <exclude>application.command</exclude>
+                    </excludes>
                     <rules>
                         <rule>
                             <element>CLASS</element>
-                            <exclude>application.command</exclude>
                             <limits>
                                 <limit>
                                     <counter>LINE</counter>
