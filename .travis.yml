@@ -5,8 +5,8 @@ env:
 before_deploy:
   - git config --local user.name "DerkVanDenBergh"
   - git config --local user.email "derkv@ndenbergh.nl"
-  - export GIT_TAG=$TRAVIS_BRANCH_buildv0.1.$TRAVIS_BUILD_NUMBER
-  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG
 deploy:
   provider: releases
   api_key:
