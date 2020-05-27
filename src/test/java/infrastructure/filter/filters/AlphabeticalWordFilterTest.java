@@ -13,7 +13,7 @@ public class AlphabeticalWordFilterTest {
 
         ArrayList<String> toBeFilteredWords = new ArrayList<String>();
 
-        toBeFilteredWords.add("the");
+        toBeFilteredWords.add("the/");
         toBeFilteredWords.add("quick!");
         toBeFilteredWords.add("br0wn");
         toBeFilteredWords.add("fox");
@@ -25,6 +25,6 @@ public class AlphabeticalWordFilterTest {
 
 
 
-        assertEquals(filteredWords, filter.filterWords(toBeFilteredWords), "Filter should remove 'quick!' and 'br0wn'");
+        assertEquals(filteredWords, filter.filterWords(toBeFilteredWords), "Filter should removed 'the/', 'quick!' and 'br0wn'");
     }
 }

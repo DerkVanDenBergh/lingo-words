@@ -15,7 +15,7 @@ deploy:
   on:
     repo: DerkVanDenBergh/lingo-words
     all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^(master|dev)$
+    condition: $TRAVIS_BRANCH =~ ^(master|release)$
   skip_cleanup: 'true'
 after_success:
   - bash <(curl -s https://codecov.io/bash)
