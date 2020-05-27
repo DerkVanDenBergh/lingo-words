@@ -34,7 +34,7 @@ public class CSVDeserializer implements Deserializer {
         }
         catch (IOException ioe)
         {
-            ioe.printStackTrace();
+            throw new IllegalArgumentException("File not found");
         }
 
         return words;
