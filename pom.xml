@@ -134,7 +134,7 @@
                 <!-- Threshold -->
                 <configuration>
                     <excludes>
-                        <exclude>application.command</exclude>
+                        <exclude>application/command/*</exclude>
                     </excludes>
                     <rules>
                         <rule>
