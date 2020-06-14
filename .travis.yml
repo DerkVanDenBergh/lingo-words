@@ -7,6 +7,16 @@ before_deploy:
   - git config --local user.email "derkv@ndenbergh.nl"
   - export TRAVIS_TAG=Build#$TRAVIS_BUILD_NUMBER
   - git tag $TRAVIS_TAG
+addons:
+  sonarcloud:
+    organization: "derkvandenbergh"
+    token:
+      secure: "nPjZWlzrmhqinwrhM0vRukyUMRGtN6VqqhnK96gRGlJa61lmHJU4WLkR5nfDm1uz5ljW6SmHmN7JKHNmoYLR54mYUO81uRIEtq+zB0qCDN8UuY2dPt5E9uChIzxqVPQtXCmFtzZGx7CqHPOVPTY6KlvEGeB1jiItNgGWYrf9ab5DfKTExKAIKI71faWVuy4awdY5dIWO1DNCN8jRqBk+gTU4hjO2q
+      k6eroP8jFbutTgmv+CqWZLIJ1WuyClliW8mWFgssBeIhJH40kORyPpPYcvRC3Px48imSfLqWXHf+Qkx17NVH8auBvWAHYnQ4gGYysHKPLNg9M5/SzJKjJUe9hfadWVckJbDFFtfeK2LH3xAKW/9DJoL1nIIsRpDn+QXQYT0qn6zVnr7WFdVhe31YebwKzd2dOQ4BcsJa8m9DNPPxeh2HVR5zr7PGAW3XzvNDmwzY
+      +nEQzuQLuyU+Jys8ABvEglPgoXbR2WIjEI+Er+B5GIvXcw3U5jvH4qZ2zSZvI7w/S/Lm5SmbLmVjkcS59ahZd6B17SOiY+6TGbvFvfEBkTI2O+qejr/R5r3Hby/MK9t9sPyx7xZLcI+EErKIU+of/vmJgKq+Lfn940DPw6uulL3NZyxTSI7tsougMayzp8AkSSIO+i2tOlN89xMa3vWoVuS3X3VI9PpjhZA+os="
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=DerkVanDenBergh_lingo-words
 deploy:
   provider: releases
   api_key:

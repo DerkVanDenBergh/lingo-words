@@ -18,15 +18,15 @@ public class CSVDeserializerTest {
 
         ArrayList<String> fileWords = new ArrayList<>();
 
-        fileWords.add("the/");
-        fileWords.add("quick!");
-        fileWords.add("br0wn");
-        fileWords.add("fox");
-        fileWords.add("jumps");
-        fileWords.add("over");
-        fileWords.add("the");
-        fileWords.add("lazy");
-        fileWords.add("dog");
+        fileWords.add("effect/");
+        fileWords.add("appear!");
+        fileWords.add("bedr0om");
+        fileWords.add("carbon");
+        fileWords.add("rotate");
+        fileWords.add("rabbit");
+        fileWords.add("whisper");
+        fileWords.add("makeup");
+        fileWords.add("maven");
 
         ArrayList<String> words = deserializer.read(pathToFile);
 

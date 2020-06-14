@@ -18,7 +18,7 @@ public class FileWordsetSourceTest {
 
         assertEquals("dutch", wordset.getLanguage(), "Language is wordset should be same as predefined");
 
-        assertEquals("fox", wordset.getWords().get(0), "The first word of an alphabetical wordset of the testdata should be 'fox'");
+        assertEquals("carbon", wordset.getWords().get(0), "The first word of an alphabetical wordset of the testdata should be 'fox'");
     }
 
 }

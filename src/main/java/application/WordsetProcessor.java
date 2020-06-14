@@ -11,17 +11,17 @@ public class WordsetProcessor {
 
         WordsetTarget target = new ApiWordsetTarget(endPoint, format);
 
-        return(exportWordset(source, target));
+        return exportWordset(source, target);
     }
 
     public boolean exportWordset(WordsetSource source, WordsetTarget target) {
         try {
             String response = target.export(source.importSet());
-            System.out.println(response);
+            System.out.println("response server: " + response);
         } catch(Exception e) {
             System.out.println(e.toString());
-            return(false);
+            return false;
         }
-        return(true);
+        return true;
     }
 }

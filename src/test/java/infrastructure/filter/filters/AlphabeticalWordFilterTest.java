@@ -13,18 +13,18 @@ public class AlphabeticalWordFilterTest {
 
         ArrayList<String> toBeFilteredWords = new ArrayList<String>();
 
-        toBeFilteredWords.add("the");
-        toBeFilteredWords.add("quick!");
-        toBeFilteredWords.add("br0wn");
-        toBeFilteredWords.add("fox");
+        toBeFilteredWords.add("effect/");
+        toBeFilteredWords.add("appear");
+        toBeFilteredWords.add("bedr0om");
+        toBeFilteredWords.add("carbon");
 
         ArrayList<String> filteredWords = new ArrayList<String>();
 
-        filteredWords.add("the");
-        filteredWords.add("fox");
+        filteredWords.add("appear");
+        filteredWords.add("carbon");
 
 
 
-        assertEquals(filteredWords, filter.filterWords(toBeFilteredWords), "Filter should removed 'quick!' and 'br0wn'");
+        assertEquals(filteredWords, filter.filterWords(toBeFilteredWords), "Filter should removed 'effect/' and 'bedr0om'");
     }
 }

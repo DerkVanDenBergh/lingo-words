@@ -10,3 +10,6 @@ This is a tool that can be used to export a wordset to multiple targets. It can 
 ##### Export #####
 * Export to an api endpoint in json
 
+##### Usage #####
+
+```java -jar Wordset-Export.jar file -f <path/to/file> -t <api> -e <Endpoint> -fi <filter> -rf <requestformat> -l <language>```

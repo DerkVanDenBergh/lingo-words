@@ -13,16 +13,16 @@ public class AlphaNumericWordFilterTest {
 
         ArrayList<String> toBeFilteredWords = new ArrayList<String>();
 
-        toBeFilteredWords.add("the");
-        toBeFilteredWords.add("quick!");
-        toBeFilteredWords.add("br0wn");
-        toBeFilteredWords.add("fox");
+        toBeFilteredWords.add("effect/");
+        toBeFilteredWords.add("appear");
+        toBeFilteredWords.add("bedr0om");
+        toBeFilteredWords.add("carbon");
 
         ArrayList<String> filteredWords = new ArrayList<String>();
 
-        filteredWords.add("the");
-        filteredWords.add("br0wn");
-        filteredWords.add("fox");
+        filteredWords.add("appear");
+        filteredWords.add("bedr0om");
+        filteredWords.add("carbon");
 
 
 

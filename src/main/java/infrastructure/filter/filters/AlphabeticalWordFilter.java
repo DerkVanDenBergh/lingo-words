@@ -19,7 +19,7 @@ public class AlphabeticalWordFilter implements WordFilter {
         {
             Matcher matcher = pattern.matcher(word);
 
-            if(matcher.matches()) {
+            if(matcher.matches() && ((word.length() >= 5) && (word.length() <= 7))) {
                 System.out.println(word);
                 filteredWords.add(word);
             }

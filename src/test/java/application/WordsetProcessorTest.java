@@ -98,8 +98,10 @@ public class WordsetProcessorTest {
                 )
         );
 
+
+
         wireMockServer.verify(postRequestedFor(urlEqualTo("/export"))
-                .withRequestBody(equalToJson("{\"language\":\"dutch\",\"words\":[\"fox\",\"jumps\",\"over\",\"the\",\"lazy\",\"dog\"]}")));
+                .withRequestBody(equalToJson("{\"language\":\"dutch\",\"words\":[ \"carbon\", \"rotate\", \"rabbit\", \"whisper\", \"makeup\", \"maven\" ]}")));
     }
 
     @AfterEach
